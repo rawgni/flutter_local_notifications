@@ -87,10 +87,12 @@ public class NotificationDetails {
     public static final String ID = "id";
     public static final String TITLE = "title";
     public static final String BODY = "body";
+    public static final String TIMEOUT = "timeout";
 
     public Integer id;
     public String title;
     public String body;
+    public Long timeout;
     public String icon;
     public String channelId = "Default_Channel_Id";
     public String channelName;
@@ -135,6 +137,9 @@ public class NotificationDetails {
         notificationDetails.id = (Integer) arguments.get(ID);
         notificationDetails.title = (String) arguments.get(TITLE);
         notificationDetails.body = (String) arguments.get(BODY);
+
+        notificationDetails.timeout = Long.valueOf(((Integer) arguments.get(TIMEOUT)).longValue());
+
         if (arguments.containsKey(MILLISECONDS_SINCE_EPOCH)) {
             notificationDetails.millisecondsSinceEpoch = (Long) arguments.get(MILLISECONDS_SINCE_EPOCH);
         }

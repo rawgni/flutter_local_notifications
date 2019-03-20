@@ -103,7 +103,7 @@ class FlutterLocalNotificationsPlugin {
   }
 
   /// Show a notification with an optional payload that will be passed back to the app when a notification is tapped
-  Future show(int id, String title, String body,
+  Future show(int id, String title, String body, int timeout,
       NotificationDetails notificationDetails,
       {String payload}) async {
     _validateId(id);
@@ -112,6 +112,7 @@ class FlutterLocalNotificationsPlugin {
     await _channel.invokeMethod('show', <String, dynamic>{
       'id': id,
       'title': title,
+      'timeout': timeout,
       'body': body,
       'platformSpecifics': serializedPlatformSpecifics,
       'payload': payload ?? ''

@@ -35,7 +35,7 @@ void main() {
           new NotificationDetails(null, iOSPlatformChannelSpecifics);
 
       await flutterLocalNotificationsPlugin
-          .show(0, title, body, platformChannelSpecifics, payload: payload);
+          .show(0, title, body, 0, platformChannelSpecifics, payload: payload);
       verify(mockChannel.invokeMethod('show', <String, dynamic>{
         'id': id,
         'title': title,
@@ -96,7 +96,7 @@ void main() {
           new NotificationDetails(androidPlatformChannelSpecifics, null);
 
       await flutterLocalNotificationsPlugin
-          .show(0, title, body, platformChannelSpecifics, payload: payload);
+          .show(0, title, body, 0, platformChannelSpecifics, payload: payload);
       verify(mockChannel.invokeMethod('show', <String, dynamic>{
         'id': id,
         'title': title,
